@@ -31,8 +31,9 @@ fun main(args: Array<String>) {
         this.prnt()
     }
 
-    extAsParamsWhewLambdaTakesParams {
-
+    extAsParamsWhewLambdaTakesParams("Nachos") { name ->
+        println(name.toUpperCase())
+    
     }
 
 }
@@ -83,9 +84,9 @@ fun extAsParams(lambda: Psychedelic.() -> Unit) {
 }
 
 // pass lambda ext fun to a funcion parms
-fun extAsParamsWhewLambdaTakesParams(lambda: Psychedelic.(name:String) -> Unit){
+fun extAsParamsWhewLambdaTakesParams(name: String, lambda: Psychedelic.(String) -> Unit) {
     // context is type Psychedelic here so need to create obj & then call obl.lambda()
     // only lambda() do not work.
 
-    Psychedelic().lambda("12345")
+    Psychedelic().lambda(name)
 }
